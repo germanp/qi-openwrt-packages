@@ -1,0 +1,18 @@
+diff -Naur ebindkeys-zipit-2010.12.22/Makefile ebindkeys-zipit-2010.12.22-new/Makefile
+--- ebindkeys-zipit-2010.12.22/Makefile	2010-12-22 15:01:00.000000000 -0300
++++ ebindkeys-zipit-2010.12.22-new/Makefile	2012-03-03 00:18:39.271653279 -0300
+@@ -3,10 +3,12 @@
+ CFLAGS=-L. -L.. -O2 --std=c99
+ LIBS=
+ 
+-
+ all:
+ 	$(CC) $(CFLAGS) -c *.c
+ 	$(CC) $(CFLAGS) *.o -o ebindkeys $(LIBS)
+-	
++
++install:
++	@echo 'nothing'
++
+ clean:
+ 	rm -f *.o ebindkeys

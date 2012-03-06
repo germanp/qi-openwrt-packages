@@ -1,0 +1,59 @@
+# comment test
+
+# specifying dev is mandatory.
+dev = "/dev/input/event0"
+
+# if, for some odd reason, you don't want ebindkeys to fork 
+# at start up, uncomment the below. Default is Yes
+#daemon = no
+
+event
+{
+	# CTRL+Options: Turns on/off ebindkeys
+	action = "TOGGLE"
+	keys = {0x1d,0x165} 
+}
+
+event
+{
+        # Vol-: Decrease Volume
+        action = "/usr/bin/amixer -q set PCM 32-"
+        keys = {0x4a}
+}
+
+event
+{
+        # vol+: Increase Volume
+        action = "/usr/bin/amixer -q set PCM 32+"
+        keys = {0x4e}
+}
+
+event
+{
+	# CTRL+vol-: Decrease LCD Brightness
+	action = "/usr/sbin/lcd -75"
+	keys = {0x1d,0x4a}
+}
+
+event
+{
+	# CTRL+vol+: Increase LCD Brightness
+	action = "/usr/sbin/lcd +75"
+	keys = {0x1d,0x4e}
+}
+
+event
+{
+	# ALT+vol-: Decrease KEY Brightness
+	action = "/usr/sbin/keys -75"
+	keys = {0x38,0x4a}
+}
+
+event
+{
+	# ALT+vol+: Increase KEY Brightness
+	action = "/usr/sbin/keys +75"
+	keys = {0x38,0x4e}
+}
+
+
