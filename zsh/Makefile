@@ -17,7 +17,7 @@ define Package/zsh
   URL:=http://zsh.sourceforge.net/
 endef
 
-define Package/mcabber/description
+define Package/zsh/description
 	Command line shell designed for interactive use and bash compatible.
 endef
 
@@ -27,6 +27,14 @@ endef
 
 define Package/zsh/install
 	make DESTDIR=$(1) -C $(PKG_BUILD_DIR) install
+	$(INSTALL_DIR) $(1)/etc
+	$(INSTALL_DATA) ./files/zshrc $(1)/etc/zshrc
+endef
+
+define Package/zsh/postinst
+#!/bin/sh
+grep zsh $${IPKG_INSTROOT}/etc/shells || \
+        echo "/usr/bin/zsh" >> $${IPKG_INSTROOT}/etc/shells
 endef
 
 $(eval $(call BuildPackage,zsh))
